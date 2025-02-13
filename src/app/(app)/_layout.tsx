@@ -1,13 +1,12 @@
-import { Tabs } from "expo-router";
-// import { Redirect } from "expo-router";
+import { Tabs, Redirect } from "expo-router";
+import { keys, storage } from "@/storage";
 
 function AppLayout() {
-	// // TODO: Implement actual logic to check if onboarding is complete
-	// const isOnboardingComplete = Math.random() > 0.5;
+	const isOnboarded = storage.getBoolean(keys.IS_ONBOARDED);
 
-	// if (!isOnboardingComplete) {
-	// 	return <Redirect href="/onboarding" />;
-	// }
+	if (!isOnboarded) {
+		return <Redirect href="/onboarding" />;
+	}
 
 	return (
 		<Tabs>

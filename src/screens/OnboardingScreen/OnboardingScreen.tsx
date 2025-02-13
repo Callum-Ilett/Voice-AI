@@ -9,6 +9,7 @@ import { images } from "@/assets";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "expo-router";
+import { keys, storage } from "@/storage";
 import {
 	useSharedValue,
 	useDerivedValue,
@@ -48,6 +49,14 @@ const OnboardingScreen = () => {
 		runOnJS(setActiveIndex)(Math.round(progress.value));
 	}, [progress]);
 
+	const markOnboardingCompleted = (value: boolean) => {
+		try {
+			storage.set(keys.IS_ONBOARDED, value);
+		} catch (error) {
+			console.error("Error setting onboarded status", error);
+		}
+	};
+
 	const handlePaginationPress = (index: number) => {
 		carouselRef.current?.scrollTo({
 			count: index - activeIndex,
@@ -60,10 +69,12 @@ const OnboardingScreen = () => {
 	};
 
 	const handleSkipPress = () => {
+		markOnboardingCompleted(true);
 		router.push("/(app)");
 	};
 
 	const handleGetStartedPress = () => {
+		markOnboardingCompleted(true);
 		router.push("/(app)");
 	};
 
