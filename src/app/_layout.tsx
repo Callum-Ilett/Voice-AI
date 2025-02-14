@@ -9,7 +9,7 @@ export default function RootLayout() {
 		<GestureHandlerRootView>
 			<ThemeProvider>
 				<Stack>
-					<Stack.Screen name="(app)/index" />
+					<Stack.Screen name="(app)" />
 
 					<Stack.Screen
 						name="onboarding"
