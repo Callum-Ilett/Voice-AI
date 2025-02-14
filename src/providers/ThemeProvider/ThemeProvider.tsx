@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { ThemeProvider as NavigationThemeProvider } from "@react-navigation/native";
+import { colors } from "@/theme/colors";
 
 type ThemeProviderProps = {
 	children: ReactNode;
@@ -11,8 +12,8 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
 			value={{
 				colors: {
 					primary: "rgb(0, 122, 255)",
-					background: "#0D0F13",
-					card: "#0D0F13",
+					background: colors.primary,
+					card: colors.primary,
 					text: "rgb(28, 28, 30)",
 					border: "rgb(216, 216, 216)",
 					notification: "rgb(255, 59, 48)"

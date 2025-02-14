@@ -5,26 +5,23 @@ import { forwardRef, type ReactNode } from "react";
 import { Pressable, Text } from "react-native";
 import { cn } from "@/lib/utils";
 
-const buttonVariants = cva(
-	"flexjustify-center items-center gap-[10px] rounded-full",
-	{
-		variants: {
-			variant: {
-				primary: "bg-[#235DFF]",
-				secondary: "bg-[#1A1E24] border border-[#4C4D56]"
-			},
-			size: {
-				sm: "py-[12px]",
-				md: "py-[14px]",
-				lg: "py-[16px]"
-			}
+const buttonVariants = cva("flex justify-center items-center rounded-full", {
+	variants: {
+		variant: {
+			primary: "bg-blue",
+			secondary: "bg-charcoal"
 		},
-		defaultVariants: {
-			variant: "primary",
-			size: "lg"
+		size: {
+			sm: "py-[12px]",
+			md: "py-[14px]",
+			lg: "py-[16px]"
 		}
+	},
+	defaultVariants: {
+		variant: "primary",
+		size: "lg"
 	}
-);
+});
 
 type ButtonProps = React.ComponentPropsWithoutRef<typeof Pressable> &
 	VariantProps<typeof buttonVariants> & {

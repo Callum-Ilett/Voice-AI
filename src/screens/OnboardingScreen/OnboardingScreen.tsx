@@ -10,6 +10,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "expo-router";
 import { keys, storage } from "@/storage";
+import { colors } from "@/theme/colors";
 import {
 	useSharedValue,
 	useDerivedValue,
@@ -97,7 +98,11 @@ const OnboardingScreen = () => {
 							<Image source={item.image} />
 
 							<LinearGradient
-								colors={["rgba(13, 15, 19, 0.00)", "#0D0F13", "#0D0F13"]}
+								colors={[
+									colors.primaryTransparent,
+									colors.primary,
+									colors.primary
+								]}
 								locations={[0, 0.2021, 1]}
 								style={{
 									position: "absolute",
@@ -124,13 +129,13 @@ const OnboardingScreen = () => {
 				<Pagination.Basic
 					progress={progress}
 					data={data}
-					dotStyle={{ backgroundColor: "#323641", borderRadius: 50 }}
-					activeDotStyle={{ backgroundColor: "#4979FF" }}
+					dotStyle={{ backgroundColor: colors.steelGray, borderRadius: 50 }}
+					activeDotStyle={{ backgroundColor: colors.blue }}
 					containerStyle={{
 						position: "relative",
 						top: -28,
 						gap: 12,
-						backgroundColor: "#21252D",
+						backgroundColor: colors.steelNight,
 						paddingVertical: 6,
 						paddingHorizontal: 13,
 						borderRadius: 999
